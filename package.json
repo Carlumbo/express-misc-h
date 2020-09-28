@@ -1,0 +1,16 @@
+{
+  "name": "express-misc-t",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "startdev": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "mongoose": "^5.10.7",
+    "morgan": "~1.9.1",
+    "pg-promise": "^10.6.1"
+  }
+}
