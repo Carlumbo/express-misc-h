@@ -22,9 +22,9 @@ module.exports = {
       { new: true },
       (err, docs) => {
         console.log(docs);
-        res.send("edit", { user: docs });
       }
     );
+    res.send(updateData);
   },
   delete: async (req, res, next) => {
     let deleteUser = await db.User.findOneAndDelete(
