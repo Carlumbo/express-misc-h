@@ -6,14 +6,20 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>Login</h1>
-    <form onclick="www.google.com">
+    <h1>Register</h1>
+    <form id="reg-form">
+      <label>First Name:</label>
+      <input data-key="firstName" type="text" />
+
+      <label>Last Name:</label>
+      <input data-key="lastName" type="text" />
       <label>Email:</label>
-      <input type="email" />
+      <input data-key="email" type="email" />
       <br />
       <label>Password</label>
-      <input type="password" />
-      <button type="submit">Login</button>
+      <input data-key="password" type="password" />
+      <button type="submit">register</button>
     </form>
+    <script src="/javascript/app.js"></script>
   </body>
 </html>
