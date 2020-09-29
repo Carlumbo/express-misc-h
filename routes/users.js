@@ -13,10 +13,15 @@ router.get("/login", function (req, res, next) {
 });
 // create a user
 router.post("/", UserController.create);
+
 //list of users
 router.get("/all", UserController.read);
+
+//router.get("/login?/:email", UserController.read);
+
 //updates
 router.get("/edit/:id", UserController.update);
+
 // delete
 router.get("/:id", UserController.delete);
 module.exports = router;
