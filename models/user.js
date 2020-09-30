@@ -7,6 +7,7 @@ var UserModelSchema = new Schema({
   lastName: String,
   email: String,
   password: String,
+  third_party_auth: String,
 });
 
 var User = mongoose.model("User", UserModelSchema);
