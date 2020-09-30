@@ -6,17 +6,30 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>I am a little data point short and stout</h1>
+    <h1>Data List</h1>
     <tbody>
       <% data.forEach((data)=>{%>
-      <tr>
-        <td id="dataType"><%- data.type %></td>
-        <td id="dataPoint"><%- data.datapoint %></td>
-        <td id="dataUser"><%- data.user_id %></td>
-        <td><a href="/edit/<%= data._id%>">edit</a></td>
-        <td><a href="/<%= data._id%>">delete</a></td>
-      </tr>
+      <div class="class">
+        <p class="objectId" hidden><%- data.id %></p>
+        <p id="dataType">Data Type: <%- data.type %></p>
+        <tr>
+          <label>Data Point:</label>
+          <td><%- %></td>
+          <br />
+          <label>Device Origin:</label>
+          <td><%- data.PCorigin %></td>
+          <br />
+          <label>Data User:</label>
+          <td id="dataUser"><%- data.Uploader %></td>
+          <br />
+          <td>
+            <button href=<%-dataz.id%>></button>>Delete</button>
+          </td>
+          <p>-----------------------------------------</p>
+        </tr>
+      </div>
       <% }) %>
+      <script src="/javascript/data.js"></script>
     </tbody>
   </body>
 </html>
