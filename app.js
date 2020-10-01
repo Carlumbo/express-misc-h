@@ -4,8 +4,7 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var MongoStore = require("connect-mongo")(session);
-var passport = require("./passport/setup");
-var auth = require("./routes/auth");
+var passport = require("./passport");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
@@ -13,7 +12,7 @@ var regRouter = require("./routes/register");
 
 var app = express();
 
-var mongoose = require("mongoose");
+/* var mongoose = require("mongoose");
 var mongoDB =
   "mongodb+srv://superadmin:120622@cluster0.8lc0y.mongodb.net/express-msic?retryWrites=true&w=majority";
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -32,6 +31,10 @@ app.use(
   })
 );
 
+*/
+require("./passport")(app);
+let passportConfig = require("./passport.js");
+passportConfig(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 

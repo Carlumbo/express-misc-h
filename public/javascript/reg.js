@@ -26,7 +26,7 @@ var api = {
       },
       body: data,
     });
-    alert("Login Succsful");
+    //alert("Login Succsful");
     return response.json();
   },
 };
