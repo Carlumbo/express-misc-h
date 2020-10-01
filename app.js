@@ -32,11 +32,11 @@ app.use(
 );
 
 */
-require("./passport")(app);
-let passportConfig = require("./passport.js");
-passportConfig(passport);
-app.use(passport.initialize());
-app.use(passport.session());
+// require("./passport")(app);
+// let passportConfig = require("./passport.js");
+// passportConfig(passport);
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
