@@ -34,7 +34,7 @@ app.use(
 */
 // require("./passport")(app);
 // let passportConfig = require("./passport.js");
-// passportConfig(passport);
+//  passportConfig(passport);
 // app.use(passport.initialize());
 // app.use(passport.session());
 
