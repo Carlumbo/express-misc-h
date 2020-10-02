@@ -12,7 +12,7 @@ var regRouter = require("./routes/register");
 
 var app = express();
 
-/* var mongoose = require("mongoose");
+var mongoose = require("mongoose");
 var mongoDB =
   "mongodb+srv://superadmin:120622@cluster0.8lc0y.mongodb.net/express-msic?retryWrites=true&w=majority";
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -31,7 +31,6 @@ app.use(
   })
 );
 
-*/
 // require("./passport")(app);
 // let passportConfig = require("./passport.js");
 // passportConfig(passport);
