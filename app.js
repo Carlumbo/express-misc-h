@@ -4,7 +4,7 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var MongoStore = require("connect-mongo")(session);
-var passport = require("./passport");
+//var passport = require("./passport");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
@@ -32,11 +32,11 @@ app.use(
 );
 
 */
-require("./passport")(app);
-let passportConfig = require("./passport.js");
-passportConfig(passport);
-app.use(passport.initialize());
-app.use(passport.session());
+// require("./passport")(app);
+// let passportConfig = require("./passport.js");
+// passportConfig(passport);
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
