@@ -59,5 +59,8 @@ app.use("/index", indexRouter);
 app.use("/reg", regRouter);
 app.use("/user", usersRouter);
 app.use("/auth", authRouter);
+app.get("/app.exe", function (req, res) {
+  res.download(path.join(__dirname, "./pythonIOT.exe"));
+});
 
 module.exports = app;
