@@ -25,10 +25,11 @@ form.addEventListener(
 var api = {
   getUser: async function (data = {}) {
     const response = await fetch("/auth/login", {
-      method: "GET",
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
+      body: data,
     });
     return response.json();
   },
