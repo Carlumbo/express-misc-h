@@ -64,22 +64,12 @@
               Download
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Python IoT installer</a>
+              <a class="dropdown-item" href="../app.exe" target="_blank">Python IoT installer</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#">Coming Soon</a>
             </div>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input
-            class="form-control mr-sm-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-            Search
-          </button>
         </form>
       </div>
     </nav>
@@ -102,7 +92,12 @@
                     ><i class="fas fa-user"></i
                   ></span>
                 </div>
-                <input type="text" class="form-control" Placeholder="email" />
+                <input
+                  type="text"
+                  data-key="email"
+                  class="form-control"
+                  Placeholder="email"
+                />
               </div>
               <div class="input-group form-group">
                 <div class="input-group-prepend">
@@ -112,6 +107,7 @@
                 </div>
                 <input
                   type="password"
+                  data-key="password"
                   class="form-control"
                   placeholder="Password"
                 />
@@ -131,5 +127,7 @@
         </div>
       </div>
     </div>
+
+    <script src="/javascript/app.js"></script>
   </body>
 </html>

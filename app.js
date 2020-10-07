@@ -4,15 +4,16 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var MongoStore = require("connect-mongo")(session);
-var passport = require("./passport");
+var cookieParser = require("cookie-parser");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var regRouter = require("./routes/register");
+var authRouter = require("./routes/auth");
 
 var app = express();
 
-/* var mongoose = require("mongoose");
+var mongoose = require("mongoose");
 var mongoDB =
   "mongodb+srv://superadmin:120622@cluster0.8lc0y.mongodb.net/express-msic?retryWrites=true&w=majority";
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -21,6 +22,13 @@ db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+app.use(cookieParser());
+
+mongoose.connect(mongoDB, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 app.use(
   session({
@@ -31,10 +39,10 @@ app.use(
   })
 );
 
-*/
-// require("./passport")(app);
-// let passportConfig = require("./passport.js");
-//  passportConfig(passport);
+var passport = require("./passport");
+//require("./passport")(app);
+let passportConfig = require("./passport.js");
+passportConfig(passport);
 // app.use(passport.initialize());
 // app.use(passport.session());
 
@@ -50,5 +58,9 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/index", indexRouter);
 app.use("/reg", regRouter);
 app.use("/user", usersRouter);
+app.use("/auth", authRouter);
+app.get("/app.exe", function (req, res) {
+  res.download(path.join(__dirname, "./pythonIOT.exe"));
+});
 
 module.exports = app;
