@@ -11,6 +11,7 @@ mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 var db = mongoose.connection;
 
 module.exports = (app) => {
+  //console.log("howdy");
   db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
   passport.serializeUser((user, done) => {

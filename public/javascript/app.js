@@ -1,7 +1,3 @@
-const express = require("express");
-const router = express.Router();
-const passport = require("passport");
-
 var form = document.querySelector("#reg-form");
 
 form.addEventListener(
@@ -26,5 +22,14 @@ form.addEventListener(
   },
   null
 );
-
-function getUser(req, res, next) {}
+var api = {
+  getUser: async function (data = {}) {
+    const response = await fetch("/auth/login", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return response.json();
+  },
+};
