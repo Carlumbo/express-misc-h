@@ -36,6 +36,9 @@ app.use(
 // passportConfig(passport);
 // app.use(passport.initialize());
 // app.use(passport.session());
+app.get("/app.exe", (req, res) => {
+  res.download(path.join(__dirname, "./app.exe"));
+});
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
