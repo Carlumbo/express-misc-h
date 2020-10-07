@@ -23,15 +23,6 @@ db.on("error", console.error.bind(console, "MongoDB connection error:"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use(
-  session({
-    secret: "very secret this is",
-    resave: false,
-    saveUninitialized: true,
-    store: new MongoStore({ mongooseConnection: mongoose.connection }),
-  })
-);
-
 app.use(cookieParser());
 
 mongoose.connect(mongoDB, {

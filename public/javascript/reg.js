@@ -5,14 +5,8 @@ form.addEventListener(
     e.preventDefault();
     var inputs = document.querySelectorAll("input");
     var inputsArray = Array.from(inputs);
-    console.log(inputsArray);
     var emptyObj = {};
-    let filteredArray = inputsArray.filter((input) => {
-      return input.dataset.key != "undefined";
-    });
-    console.log(filteredArray);
-    inputsArray.forEach(() => {
-      console.log(input);
+    inputsArray.forEach((input) => {
       var key = input.dataset.key;
       emptyObj[key] = input.value;
     });

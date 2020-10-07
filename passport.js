@@ -7,6 +7,7 @@ var MongoStore = require("connect-mongo")(session);
 var mongoose = require("mongoose");
 var mongoDB =
   "mongodb+srv://superadmin:120622@cluster0.8lc0y.mongodb.net/express-msic?retryWrites=true&w=majority";
+mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 var db = mongoose.connection;
 
 module.exports = (app) => {
