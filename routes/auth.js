@@ -3,8 +3,8 @@ const router = express.Router();
 const passport = require("passport");
 
 router.get("/login", (req, res, next) => {
-  console.log(req.user);
   passport.authenticate("local", function (err, user, info) {
+    console.log(req.user);
     //console.log(req);
     //console.log(user);
     if (err) {
