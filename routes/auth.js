@@ -5,7 +5,7 @@ const passport = require("passport");
 router.post("/login", (req, res, next) => {
   //console.log(req.body);
   passport.authenticate("local", function (err, user, info) {
-    console.log(user);
+    console.log(req.user);
     //console.log(user);
     if (err) {
       //console.log("cp1");
@@ -16,6 +16,7 @@ router.post("/login", (req, res, next) => {
     }
 
     req.logIn(user, function (err) {
+      console.log("cp1");
       if (err) {
         //console.log("cp3");
         return res.status(400).json({ errors: err });

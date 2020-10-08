@@ -28,7 +28,7 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Misc Iot Platform</a>
+      <a class="navbar-brand" href="/">Misc Iot Platform</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -72,17 +72,6 @@
             </div>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input
-            class="form-control mr-sm-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-            Search
-          </button>
-        </form>
       </div>
     </nav>
     <div class="container">
@@ -104,7 +93,12 @@
                     ><i class="fas fa-user"></i
                   ></span>
                 </div>
-                <input type="text" class="form-control" Placeholder="email" />
+                <input
+                  type="text"
+                  data-key="email"
+                  class="form-control"
+                  Placeholder="email"
+                />
               </div>
               <div class="input-group form-group">
                 <div class="input-group-prepend">
@@ -114,6 +108,7 @@
                 </div>
                 <input
                   type="password"
+                  data-key="password"
                   class="form-control"
                   placeholder="Password"
                 />
@@ -127,6 +122,7 @@
                 <input
                   type="password"
                   class="form-control"
+                  data-key="password_confirmation"
                   placeholder="Password Confirmation"
                 />
               </div>
@@ -135,13 +131,7 @@
               </div>
             </form>
           </div>
-          <div class="card-footer">
-            <div class="d-flex justify-content-center links">
-              Don't have an account?
-              <br />
-              <a href="/reg">Sign Up</a>
-            </div>
-          </div>
+          <div class="card-footer"></div>
         </div>
       </div>
     </div>

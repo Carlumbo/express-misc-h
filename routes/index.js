@@ -9,13 +9,13 @@ let logged_in = false;
 
 router.post("/new", DataController.create);
 //list of users
-if (logged_in) {
-  router.get("/", DataController.read);
-} else {
-  router.get("/", function (req, res, next) {
-    res.send("Please Login");
-  });
-}
+// if (logged_in) {
+router.get("/", DataController.read);
+// } else {
+//   router.get("/", function (req, res, next) {
+//     res.send("Please Login");
+//   });
+// }
 //updates
 router.post("/edit/:id", DataController.update);
 // delete

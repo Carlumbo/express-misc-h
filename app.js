@@ -16,8 +16,12 @@ var app = express();
 var mongoose = require("mongoose");
 var mongoDB =
   "mongodb+srv://superadmin:120622@cluster0.8lc0y.mongodb.net/express-msic?retryWrites=true&w=majority";
+// console.log(mongoose.connection);
+
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
+
 var db = mongoose.connection;
+// console.log(db);
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 app.use(express.json());

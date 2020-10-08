@@ -3,12 +3,11 @@ const db = require("../models");
 
 module.exports = {
   create: async (req, res, next) => {
-    console.log(req.body);
     try {
       let newUser = await db.User.create(req.body);
       res.json(newUser);
     } catch (err) {
-      console.log(error);
+      //console.log(error);
     }
   },
   read: async (req, res, next) => {
