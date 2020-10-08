@@ -5,7 +5,6 @@ var DataController = require("../controllers/DataController");
 // router.get("/", function (req, res, next) {
 //   res.render("data");
 // });
-let logged_in = false;
 
 router.post("/new", DataController.create);
 //list of users
