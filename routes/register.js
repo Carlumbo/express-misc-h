@@ -7,7 +7,7 @@ function handleRedirect(req, res) {
   const url = "http://localhost:3000/index/";
   res.redirect(url);
 }
-//
+
 /* GET users listing. */
 router.get("/", function (req, res, next) {
   res.render("register");
