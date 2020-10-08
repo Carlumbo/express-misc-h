@@ -12,7 +12,7 @@ function handleRedirect(req, res) {
 router.get("/", function (req, res, next) {
   res.render("register");
 });
-// create a user
+//
 router.post("/register", function (req, res, next) {
   //console.log(req.body);
   UserController.create(req);
