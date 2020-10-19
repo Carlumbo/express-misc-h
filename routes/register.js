@@ -3,6 +3,8 @@ var login = "./views/login";
 var router = express.Router();
 var UserController = require("../controllers/UserController");
 
+var DataController = require("../controllers/DataController");
+
 function handleRedirect(req, res) {
   const url = "http://localhost:3000/index/";
   res.redirect(url);
@@ -16,8 +18,7 @@ router.get("/", function (req, res, next) {
 router.post("/register", function (req, res, next) {
   //console.log(req.body);
   UserController.create(req);
-  return res.redirect("../index");
-  // res.render("data");
+  //return res.render("data", DataController.read);
 });
 
 module.exports = router;

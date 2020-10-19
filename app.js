@@ -6,11 +6,6 @@ var logger = require("morgan");
 var MongoStore = require("connect-mongo")(session);
 var cookieParser = require("cookie-parser");
 
-var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
-var regRouter = require("./routes/register");
-var authRouter = require("./routes/auth");
-
 var app = express();
 
 var mongoose = require("mongoose");
@@ -61,6 +56,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+
+var indexRouter = require("./routes/index");
+var usersRouter = require("./routes/users");
+var regRouter = require("./routes/register");
+var authRouter = require("./routes/auth");
 
 app.use("/index", indexRouter);
 app.use("/reg", regRouter);

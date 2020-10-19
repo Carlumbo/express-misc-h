@@ -28,7 +28,12 @@ module.exports = (app) => {
     });
   });
   passport.use(
-    new LocalStrategy((email, password, done) => {
+    new LocalStrategy({ usernameField: "email" }, function (
+      email,
+      password,
+      done
+    ) {
+      console.log(`${email}  , ${password}`);
       db.User.findOne({ email: email })
         .then((user) => {
           if (!user) {
