@@ -17,8 +17,7 @@ module.exports = (app) => {
   db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
   passport.serializeUser((user, done) => {
-    console.log(user.email)
-    done(null, user.id);
+    done(null, user);
   });
 
   passport.deserializeUser((id, done) => {

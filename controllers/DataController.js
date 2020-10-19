@@ -8,7 +8,9 @@ module.exports = {
   },
   read: async (req, res, next) => {
     let allDatum = await db.Data.find({});
-    res.render("data", { data: allDatum });
+    var fData = allDatum.filter (sData =>  sData.Uploader = req.session.passport.user.email) 
+    console.log(fData)
+    res.render("data", { data: fData });
   },
   update: async (req, res, next) => {
     let updateData = await db.Data.findOneAndUpdate({ id: req.params.id });
@@ -16,7 +18,8 @@ module.exports = {
     res.json(updateData);
   },
   delete: async (req, res, next) => {
-    let deleteUser = await db.Data.findOneAndDelete({ _id: req.params.id });
+    console.log(req.params.id)
+    let deleteUser = await db.Data.findOneAndDelete({ id: req.params.id });
     res.send(deleteUser);
   },
 };

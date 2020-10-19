@@ -8,6 +8,14 @@ router.get("/", function (req, res, next) {
   res.send("respond with a resource");
 });
 
+router.get('/logout', function (req,res, next) {
+  //res.send("respond with a resource");
+  if (req.session) {
+    req.session.destroy()
+    res.redirect("./login")
+  }
+})
+
 router.get("/login", function (req, res, next) {
   res.render("login");
 });

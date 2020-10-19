@@ -51,13 +51,15 @@ app.use(
   
   app.use((req,res,next) => {
     if (req.user) {
-      console.log("checkpoint" + req.user)
+      console.log(req.session.passport.user.email)
+      //var sessionUser = req.user
     }
     else {
       console.log("no dice")
     }
     next()
   })
+  //app.use((req) => {console.log(req.session)})
 
   app.get("/app.exe", (req, res) => {
     res.download(path.join(__dirname, "./app.exe"));
@@ -76,7 +78,6 @@ var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var regRouter = require("./routes/register");
 var authRouter = require("./routes/auth");
-
 app.use("/index", indexRouter);
 app.use("/reg", regRouter);
 app.use("/user", usersRouter);
