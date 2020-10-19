@@ -3,7 +3,6 @@ const db = require("../models");
 
 module.exports = {
   create: async (req, res, next) => {
-    console.log(req.body);
     let newData = await db.Data.create(req.body);
     res.json(newData);
   },

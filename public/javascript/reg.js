@@ -12,7 +12,7 @@ form.addEventListener(
     });
     var jobj = JSON.stringify(emptyObj);
     var result = api.postUser(jobj);
-    console.log(jobj);
+   // console.log(jobj);
   },
   null
 );

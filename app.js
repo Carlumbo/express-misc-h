@@ -5,12 +5,12 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var MongoStore = require("connect-mongo")(session);
 var cookieParser = require("cookie-parser");
-
 var app = express();
+
 
 var mongoose = require("mongoose");
 var mongoDB =
-  "mongodb+srv://superadmin:120622@cluster0.8lc0y.mongodb.net/express-msic?retryWrites=true&w=majority";
+"mongodb+srv://superadmin:120622@cluster0.8lc0y.mongodb.net/express-msic?retryWrites=true&w=majority";
 // console.log(mongoose.connection);
 
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -19,39 +19,54 @@ var db = mongoose.connection;
 // console.log(db);
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-
-app.use(cookieParser());
-
 mongoose.connect(mongoDB, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+app.use(cookieParser());
+
 app.use(
   session({
     secret: "very secret this is",
-    resave: false,
+    resave: true,
     saveUninitialized: true,
+    //cookie: {secure: true}
     store: new MongoStore({ mongooseConnection: mongoose.connection }),
   })
-);
+  );
+  
+  
+  
+  var passport = require('passport');
+  require("./passport")(app);
+  let passportConfig = require("./passport.js");
+  passportConfig(passport);
+  
+  app.use(passport.initialize());
+  app.use(passport.session());
+  
+  app.use((req,res,next) => {
+    if (req.user) {
+      console.log("checkpoint" + req.user)
+    }
+    else {
+      console.log("no dice")
+    }
+    next()
+  })
 
-var passport = require("./passport");
-//require("./passport")(app);
-let passportConfig = require("./passport.js");
-passportConfig(passport);
-// app.use(passport.initialize());
-// app.use(passport.session());
-app.get("/app.exe", (req, res) => {
-  res.download(path.join(__dirname, "./app.exe"));
-});
-
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "ejs");
-
-app.use(logger("dev"));
+  app.get("/app.exe", (req, res) => {
+    res.download(path.join(__dirname, "./app.exe"));
+  });
+  
+  app.set("views", path.join(__dirname, "views"));
+  app.set("view engine", "ejs");
+  
+  app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
