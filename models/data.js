@@ -8,7 +8,7 @@ var DataModelSchema = new Schema({
   Uploader: String,
   PCorigin: String,
   Email: String,
-  createdAt: String,
+  createdAt: Date,
 });
 
 var Data = mongoose.model("Data", DataModelSchema);
